@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulate HTML Content</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f7fa;
+      margin-top: 60px;
+    }
+
+    .container {
+      background-color: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      margin: 8px;
+      padding: 10px 15px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    #message {
+      color: #333;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>JavaScript Content Manipulation</h1>
+
+    <p id="message">Hello! Welcome to my webpage. 😊</p>
+
+    <button onclick="changeText()">Change Text</button>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="hideMessage()">Hide Message</button>
+    <button onclick="showMessage()">Show Message</button>
+    <button onclick="addNewContent()">Add New Content</button>
+
+    <div id="extraContent"></div>
+  </div>
+
+  <script>
+    function changeText() {
+      document.getElementById("message").innerHTML = "The message text has been changed using JavaScript!";
+    }
+
+    function changeColor() {
+      document.getElementById("message").style.color = "blue";
+    }
+
+    function hideMessage() {
+      document.getElementById("message").style.display = "none";
+    }
+
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    function addNewContent() {
+      document.getElementById("extraContent").innerHTML = "<p style='color: green; font-weight:bold;'>New content added dynamically using JavaScript!</p>";
+    }
+  </script>
+
+</body>
+</html>
