@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Column Layout Example</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    /* --- FLOAT-BASED LAYOUT --- */
+    .float-container {
+      width: 90%;
+      margin: 30px auto;
+      overflow: hidden; /* clears float issue */
+    }
+
+    .float-left {
+      float: left;
+      width: 65%;
+      background-color: #e6f0ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .float-right {
+      float: right;
+      width: 30%;
+      background-color: #cce0ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    /* --- GRID-BASED LAYOUT --- */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      width: 90%;
+      margin: 40px auto;
+    }
+
+    .grid-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      /* Responsive for smaller screens */
+      .float-left, .float-right {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Two-Column Layout Example</h1>
+    <p>Using Floats and CSS Grid</p>
+  </header>
+
+  <!-- FLOAT BASED LAYOUT -->
+  <section class="float-container">
+    <div class="float-left">
+      <h2>Float-Based Left Column</h2>
+      <p>This section is aligned to the left using the <code>float: left;</code> property.</p>
+      <p>Floats were commonly used before modern layout systems like Flexbox and Grid became standard.</p>
+    </div>
+
+    <div class="float-right">
+      <h2>Float-Based Right Column</h2>
+      <p>This section is aligned to the right using <code>float: right;</code>.</p>
+      <p>It contains secondary information like ads, links, or a sidebar.</p>
+    </div>
+  </section>
+
+  <!-- GRID BASED LAYOUT -->
+  <section class="grid-container">
+    <div class="grid-item">
+      <h2>Grid Left Column</h2>
+      <p>This section uses the CSS Grid system with <code>grid-template-columns</code> to define two columns.</p>
+      <p>Grid layout provides better control over spacing, alignment, and responsiveness.</p>
+    </div>
+
+    <div class="grid-item">
+      <h2>Grid Right Column</h2>
+      <p>This is the second column in the grid layout. It adjusts automatically based on screen size.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Two-Column Layout | Designed by Chinmay PC
+  </footer>
+
+</body>
+</html>
