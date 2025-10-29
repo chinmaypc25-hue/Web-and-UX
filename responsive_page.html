@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage Example</title>
+
+  <style>
+    /* --- Base Page Styling --- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f6fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #e6e6e6;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #0056b3;
+      text-decoration: none;
+      margin: 15px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .main {
+      flex: 3;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar {
+      flex: 1;
+      background-color: #dce9ff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background-color: #0056b3;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+
+    /* --- MEDIA QUERIES --- */
+
+    /* For tablets (width 768px and below) */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 10px;
+      }
+      nav a {
+        display: inline-block;
+        margin: 8px;
+        font-size: 15px;
+      }
+    }
+
+    /* For mobile phones (width 480px and below) */
+    @media (max-width: 480px) {
+      header {
+        font-size: 16px;
+        padding: 15px;
+      }
+      nav {
+        text-align: left;
+        padding: 10px;
+      }
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+      .main, .sidebar {
+        font-size: 14px;
+        padding: 15px;
+      }
+      footer {
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Webpage Example</h1>
+    <p>Using CSS Media Queries</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="container">
+    <div class="main">
+      <h2>Main Content</h2>
+      <p>
+        This is the main content section. Resize the browser window or open this page on a phone or tablet to see the layout change dynamically.
+      </p>
+      <p>
+        On larger screens, this content and the sidebar appear side-by-side. On smaller screens, they stack vertically for easier reading.
+      </p>
+    </div>
+
+    <div class="sidebar">
+      <h3>Sidebar</h3>
+      <p>
+        This section contains extra information, such as links, ads, or updates. It moves below the main section on mobile screens.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Responsive Page | Designed by Chinmay PC
+  </footer>
+
+</body>
+</html>
