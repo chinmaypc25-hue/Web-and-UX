@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Form Validation</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      background-color: white;
+      margin: 80px auto;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0056b3;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      border-color: #0056b3;
+      outline: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #003f80;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>User Registration</h2>
+    <form id="registrationForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name">
+      <p class="error" id="nameError"></p>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email">
+      <p class="error" id="emailError"></p>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter password">
+      <p class="error" id="passwordError"></p>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" placeholder="Confirm password">
+      <p class="error" id="confirmPasswordError"></p>
+
+      <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <p id="successMessage" class="success"></p>
+  </div>
+
+  <script>
+    function validateForm() {
+      // Clear previous errors
+      document.getElementById("nameError").innerHTML = "";
+      document.getElementById("emailError").innerHTML = "";
+      document.getElementById("passwordError").innerHTML = "";
+      document.getElementById("confirmPasswordError").innerHTML = "";
+      document.getElementById("successMessage").innerHTML = "";
+
+      // Get input values
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+
+      let isValid = true;
+
+      // Validate name
+      if (name === "") {
+        document.getElementById("nameError").innerHTML = "Please enter your name.";
+        isValid = false;
+      }
+
+      // Validate email
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email === "") {
+        document.getElementById("emailError").innerHTML = "Please enter your email.";
+        isValid = false;
+      } else if (!email.match(emailPattern)) {
+        document.getElementById("emailError").innerHTML = "Enter a valid email address.";
+        isValid = false;
+      }
+
+      // Validate password
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters.";
+        isValid = false;
+      }
+
+      // Confirm password
+      if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
+        isValid = false;
+      }
+
+      // If all valid
+      if (isValid) {
+        document.getElementById("successMessage").innerHTML = "✅ Registration Successful!";
+        document.getElementById("registrationForm").reset();
+      }
+    }
+  </script>
+
+</body>
+</html>
